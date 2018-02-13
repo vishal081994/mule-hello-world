@@ -133,6 +133,13 @@
 	 	<delete file="/tmp/mule-hello-world.zip"/>
     </target>
 	
+
+    
+    
+    
+    
+    <property name="org.name" value="opt"/>
+    <property name="build.type" value="jar"/>
 <target name="dev1-cloudhub-modify">
         <exec executable="sh">
             <arg value="-c"/>
