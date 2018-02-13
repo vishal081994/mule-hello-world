@@ -167,4 +167,38 @@
     </target>
     <property name="org.name" value="opt"/>
     <property name="build.type" value="jar"/>
+<target name="dev2-cloudhub-modify">
+        <exec executable="sh">
+            <arg value="-c"/>
+            <arg value="anypoint-cli runtime-mgr cloudhub-application modify mule-hello-world-dev2 ./target/mule-hello-world-dev2.zip --username ${dev2.username} --password ${dev2.password} --environment ${dev2.environment}"/>
+        </exec>
+        <antcall target="wait-for-start"/>
+    </target>
+    <target name="dev2-cloudhub-deploy">
+        <exec executable="sh">
+            <arg value="-c"/>
+            <arg value="anypoint-cli runtime-mgr cloudhub-application deploy mule-hello-world-dev2 ./target/mule-hello-world-dev2.zip --username ${dev2.username} --password ${dev2.password} --environment ${dev2.environment}"/>
+        </exec>
+        <antcall target="wait-for-start"/>
+    </target>
+    <target name="dev2-cloudhub-start">
+        <exec executable="sh">
+            <arg value="-c"/>
+            <arg value="anypoint-cli runtime-mgr cloudhub-application start mule-hello-world-dev2 --username ${dev2.username} --password ${dev2.password} --environment ${dev2.environment}"/>
+        </exec>
+    </target>
+    <target name="dev2-cloudhub-stop">
+        <exec executable="sh">
+            <arg value="-c"/>
+            <arg value="anypoint-cli runtime-mgr cloudhub-application stop mule-hello-world-dev2 --username ${dev2.username} --password ${dev2.password} --environment ${dev2.environment}"/>
+        </exec>
+    </target>
+    <target name="dev2-cloudhub-restart">
+        <exec executable="sh">
+            <arg value="-c"/>
+            <arg value="anypoint-cli runtime-mgr cloudhub-application restart mule-hello-world-dev2 --username ${dev2.username} --password ${dev2.password} --environment ${dev2.environment}"/>
+        </exec>
+    </target>
+    <property name="org.name" value="opt"/>
+    <property name="build.type" value="jar"/>
 </project>
